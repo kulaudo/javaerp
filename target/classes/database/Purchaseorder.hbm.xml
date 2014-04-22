@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Purchaseorder" table="purchaseorder" catalog="erp">
+        <id name="purOrderId" type="java.lang.Integer">
+            <column name="PurOrderID" />
+            <generator class="identity" />
+        </id>
+        <property name="sysId" type="string">
+            <column name="SysID" length="3" />
+        </property>
+        <property name="purOrderDate" type="timestamp">
+            <column name="PurOrderDate" length="19" />
+        </property>
+        <property name="purOrderDepartId" type="string">
+            <column name="PurOrderDepartID" length="6" />
+        </property>
+        <property name="reqObjectId" type="string">
+            <column name="ReqObjectID" length="2" />
+        </property>
+        <property name="purOrderVendor" type="string">
+            <column name="PurOrderVendor" length="10" />
+        </property>
+        <property name="purOrderSalesTerm" type="java.lang.Character">
+            <column name="PurOrderSalesTerm" length="1" />
+        </property>
+        <property name="purOrderPaymentTerm" type="java.lang.Character">
+            <column name="PurOrderPaymentTerm" length="1" />
+        </property>
+        <property name="purOrderStatus" type="java.lang.Character">
+            <column name="PurOrderStatus" length="1" />
+        </property>
+        <property name="memo" type="string">
+            <column name="Memo" length="20" />
+        </property>
+        <property name="operationId" type="string">
+            <column name="OperationID" length="6" />
+        </property>
+        <property name="confirmId" type="string">
+            <column name="ConfirmID" length="6" />
+        </property>
+        <property name="confirmDate" type="timestamp">
+            <column name="ConfirmDate" length="19" />
+        </property>
+        <property name="updateUserId" type="string">
+            <column name="UpdateUserID" length="6" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="UpdateDate" length="19" />
+        </property>
+        <property name="notesMonthPayDate" type="java.lang.Integer">
+            <column name="NotesMonthPayDate" />
+        </property>
+        <property name="monthsOfPayment" type="java.lang.Integer">
+            <column name="MonthsOfPayment" />
+        </property>
+        <set name="purchaseorderDetailses" table="purchaseorder_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PurOrderID" not-null="true" />
+            </key>
+            <one-to-many class="database.PurchaseorderDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

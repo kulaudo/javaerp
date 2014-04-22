@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Requisition" table="requisition" catalog="erp">
+        <id name="requisitionId" type="java.lang.Integer">
+            <column name="RequisitionID" />
+            <generator class="identity" />
+        </id>
+        <property name="sysId" type="string">
+            <column name="SysID" length="3" />
+        </property>
+        <property name="requDate" type="timestamp">
+            <column name="RequDate" length="19" />
+        </property>
+        <property name="requDepartId" type="string">
+            <column name="RequDepartID" length="6" />
+        </property>
+        <property name="budgetNo" type="string">
+            <column name="BudgetNo" length="10" />
+        </property>
+        <property name="memo" type="string">
+            <column name="Memo" length="20" />
+        </property>
+        <property name="operatorId" type="string">
+            <column name="OperatorID" length="10" />
+        </property>
+        <property name="confirmId" type="string">
+            <column name="ConfirmID" length="10" />
+        </property>
+        <property name="updateId" type="string">
+            <column name="UpdateID" length="10" />
+        </property>
+        <property name="confirmDate" type="timestamp">
+            <column name="ConfirmDate" length="19" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="UpdateDate" length="19" />
+        </property>
+        <property name="mark" type="java.lang.Character">
+            <column name="Mark" length="1" />
+        </property>
+        <set name="requisitionDetailses" table="requisition_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="requisitionId" not-null="true" />
+            </key>
+            <one-to-many class="database.RequisitionDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

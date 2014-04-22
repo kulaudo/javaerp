@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Objectbasicdata" table="objectbasicdata" catalog="erp">
+        <composite-id name="id" class="database.ObjectbasicdataId">
+            <key-property name="objectClassId" type="string">
+                <column name="ObjectClassID" length="2" />
+            </key-property>
+            <key-property name="objectId" type="string">
+                <column name="ObjectID" length="10" />
+            </key-property>
+        </composite-id>
+        <property name="objectName" type="string">
+            <column name="ObjectName" length="30" />
+        </property>
+        <property name="objectNameEng" type="string">
+            <column name="ObjectNameEng" length="30" />
+        </property>
+        <property name="companyNo" type="string">
+            <column name="CompanyNO" length="10" />
+        </property>
+        <property name="contactId" type="java.lang.Integer">
+            <column name="contactID" />
+        </property>
+    </class>
+</hibernate-mapping>

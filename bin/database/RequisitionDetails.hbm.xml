@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.RequisitionDetails" table="requisition_details" catalog="erp">
+        <composite-id name="id" class="database.RequisitionDetailsId">
+            <key-property name="sequNo" type="string">
+                <column name="SequNo" length="3" />
+            </key-property>
+            <key-property name="requisitionId" type="string">
+                <column name="RequisitionID" length="13" />
+            </key-property>
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="item" type="string">
+            <column name="Item" length="3" />
+        </property>
+        <property name="wasteDepartId" type="string">
+            <column name="WasteDepartID" length="6" />
+        </property>
+        <property name="requKind" type="java.lang.Character">
+            <column name="RequKind" length="1" />
+        </property>
+        <property name="requCode" type="string">
+            <column name="RequCode" length="12" />
+        </property>
+        <property name="requSpeci" type="string">
+            <column name="RequSpeci" length="12" />
+        </property>
+        <property name="requPack" type="string">
+            <column name="RequPack" length="12" />
+        </property>
+        <property name="requUnit" type="string">
+            <column name="RequUnit" length="4" />
+        </property>
+        <property name="requQuantity" type="java.lang.Float">
+            <column name="RequQuantity" precision="12" scale="0" />
+        </property>
+        <property name="orderQuantity" type="java.lang.Float">
+            <column name="OrderQuantity" precision="12" scale="0" />
+        </property>
+        <property name="estimatedTimeOfArrival" type="timestamp">
+            <column name="EstimatedTimeOfArrival" length="19" />
+        </property>
+        <property name="deadlineDeliveryDate" type="timestamp">
+            <column name="DeadlineDeliveryDate" length="19" />
+        </property>
+        <property name="requStatus" type="java.lang.Character">
+            <column name="RequStatus" length="1" />
+        </property>
+        <property name="reqObjectId" type="string">
+            <column name="ReqObjectID" length="2" />
+        </property>
+        <property name="suggestionVendor" type="string">
+            <column name="SuggestionVendor" length="10" />
+        </property>
+        <property name="suggestionBrand" type="string">
+            <column name="SuggestionBrand" length="20" />
+        </property>
+        <property name="memo" type="string">
+            <column name="Memo" length="20" />
+        </property>
+        <property name="bomId" type="string">
+            <column name="BomID" length="20" />
+        </property>
+        <property name="bomItem" type="string">
+            <column name="BomItem" length="3" />
+        </property>
+        <property name="checkYesNo" type="java.lang.Character">
+            <column name="CheckYesNo" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

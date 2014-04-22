@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Company" table="company" catalog="erp">
+        <id name="companyId" type="string">
+            <column name="CompanyID" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="attribName" type="string">
+            <column name="AttribName" length="10" not-null="true" />
+        </property>
+        <property name="companyName" type="string">
+            <column name="CompanyName" length="60" not-null="true" />
+        </property>
+        <property name="earNo" type="string">
+            <column name="EarNo" length="8" not-null="true" />
+        </property>
+        <property name="openningYear" type="string">
+            <column name="OpenningYear" length="4" not-null="true" />
+        </property>
+        <property name="openningMonth" type="string">
+            <column name="OpenningMonth" length="2" not-null="true" />
+        </property>
+        <property name="periodYear" type="string">
+            <column name="PeriodYear" length="4" not-null="true" />
+        </property>
+        <property name="periodMonth" type="string">
+            <column name="PeriodMonth" length="2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

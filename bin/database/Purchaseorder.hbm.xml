@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Purchaseorder" table="purchaseorder" catalog="erp">
+        <composite-id name="id" class="database.PurchaseorderId">
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+            <key-property name="purOrderId" type="string">
+                <column name="PurOrderID" length="13" />
+            </key-property>
+            <key-property name="sys2" type="string">
+                <column name="Sys2" length="3" />
+            </key-property>
+            <key-property name="purOrderDate" type="timestamp">
+                <column name="PurOrderDate" length="19" />
+            </key-property>
+            <key-property name="purOrderDepartId" type="string">
+                <column name="PurOrderDepartID" length="6" />
+            </key-property>
+            <key-property name="reqObjectId" type="string">
+                <column name="ReqObjectID" length="2" />
+            </key-property>
+            <key-property name="purOrderVendor" type="string">
+                <column name="PurOrderVendor" length="10" />
+            </key-property>
+            <key-property name="budgetNo" type="string">
+                <column name="BudgetNo" length="10" />
+            </key-property>
+            <key-property name="purOrderAmount" type="java.lang.Float">
+                <column name="PurOrderAmount" precision="12" scale="0" />
+            </key-property>
+            <key-property name="purOrderTax" type="java.lang.Float">
+                <column name="PurOrderTax" precision="12" scale="0" />
+            </key-property>
+            <key-property name="purOrderSalesTerm" type="string">
+                <column name="PurOrderSalesTerm" length="20" />
+            </key-property>
+            <key-property name="purOrderPaymentTerm" type="string">
+                <column name="PurOrderPaymentTerm" length="20" />
+            </key-property>
+            <key-property name="purOrderStatus" type="java.lang.Character">
+                <column name="PurOrderStatus" length="1" />
+            </key-property>
+            <key-property name="memo" type="string">
+                <column name="Memo" length="10" />
+            </key-property>
+            <key-property name="operationId" type="string">
+                <column name="OperationID" length="6" />
+            </key-property>
+            <key-property name="confirmOpId" type="string">
+                <column name="ConfirmOpID" length="10" />
+            </key-property>
+            <key-property name="confirmOpDate" type="timestamp">
+                <column name="ConfirmOpDate" length="19" />
+            </key-property>
+            <key-property name="updateUserId" type="string">
+                <column name="UpdateUserID" length="6" />
+            </key-property>
+            <key-property name="updateDate" type="timestamp">
+                <column name="UpdateDate" length="19" />
+            </key-property>
+            <key-property name="mark" type="java.lang.Character">
+                <column name="Mark" length="1" />
+            </key-property>
+            <key-property name="notesMonthPayDate" type="string">
+                <column name="NotesMonthPayDate" length="2" />
+            </key-property>
+            <key-property name="monthsOfPayment" type="java.lang.Float">
+                <column name="MonthsOfPayment" precision="12" scale="0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

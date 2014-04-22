@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Objectbasicdata" table="objectbasicdata" catalog="erp">
+        <composite-id name="id" class="database.ObjectbasicdataId">
+            <key-property name="objectId" type="string">
+                <column name="ObjectID" length="10" />
+            </key-property>
+            <key-property name="objectClassId" type="string">
+                <column name="ObjectClassID" length="2" />
+            </key-property>
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="dataType" type="char">
+            <column name="DataType" length="1" not-null="true" />
+        </property>
+        <property name="objectName" type="string">
+            <column name="ObjectName" length="30" />
+        </property>
+        <property name="objectNameEng" type="string">
+            <column name="ObjectNameEng" length="30" />
+        </property>
+        <property name="companyNo" type="string">
+            <column name="CompanyNO" length="10" />
+        </property>
+        <property name="telephoneNo" type="string">
+            <column name="TelephoneNo" length="15" />
+        </property>
+        <property name="faxNo" type="string">
+            <column name="FaxNo" length="15" />
+        </property>
+        <property name="dataLock" type="java.lang.Character">
+            <column name="DataLock" length="1" />
+        </property>
+        <property name="maker" type="string">
+            <column name="Maker" length="6" />
+        </property>
+        <property name="dateOfMake" type="java.lang.Float">
+            <column name="DateOfMake" precision="12" scale="0" />
+        </property>
+        <property name="modifier" type="string">
+            <column name="Modifier" length="6" />
+        </property>
+        <property name="dateOfModify" type="java.lang.Float">
+            <column name="DateOfModify" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

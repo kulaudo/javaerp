@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Userauthority" table="userauthority" catalog="erp">
+        <composite-id name="id" class="database.UserauthorityId">
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+            <key-property name="programId" type="string">
+                <column name="ProgramID" length="5" />
+            </key-property>
+            <key-property name="userId" type="string">
+                <column name="UserID" length="10" />
+            </key-property>
+        </composite-id>
+        <property name="run" type="char">
+            <column name="Run" length="1" not-null="true" />
+        </property>
+        <property name="append" type="char">
+            <column name="Append" length="1" not-null="true" />
+        </property>
+        <property name="edit" type="char">
+            <column name="Edit" length="1" not-null="true" />
+        </property>
+        <property name="del" type="char">
+            <column name="Del" length="1" not-null="true" />
+        </property>
+        <property name="report" type="char">
+            <column name="Report" length="1" not-null="true" />
+        </property>
+        <property name="post" type="java.lang.Character">
+            <column name="Post" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

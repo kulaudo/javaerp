@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Matcode2" table="matcode2" catalog="erp">
+        <composite-id name="id" class="database.Matcode2Id">
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+            <key-property name="kind" type="char">
+                <column name="Kind" length="1" />
+            </key-property>
+            <key-property name="matId" type="string">
+                <column name="MatID" length="12" />
+            </key-property>
+            <key-property name="seq" type="string">
+                <column name="Seq" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="kind2" type="string">
+            <column name="Kind2" length="2" />
+        </property>
+        <property name="bullId" type="string">
+            <column name="BullID" length="12" />
+        </property>
+        <property name="name" type="string">
+            <column name="Name" length="50" />
+        </property>
+        <property name="spec" type="string">
+            <column name="Spec" length="50" />
+        </property>
+        <property name="unitId" type="string">
+            <column name="UnitID" length="4" />
+        </property>
+        <property name="unit" type="string">
+            <column name="Unit" length="10" />
+        </property>
+        <property name="engName" type="string">
+            <column name="EngName" length="50" />
+        </property>
+        <property name="importSpec" type="string">
+            <column name="ImportSpec" length="40" />
+        </property>
+        <property name="importUnit" type="string">
+            <column name="ImportUnit" length="4" />
+        </property>
+        <property name="changeX" type="java.lang.Float">
+            <column name="ChangeX" precision="12" scale="0" />
+        </property>
+        <property name="netWeightX" type="java.lang.Float">
+            <column name="NetWeightX" precision="12" scale="0" />
+        </property>
+        <property name="netUnitX" type="string">
+            <column name="NetUnitX" length="4" />
+        </property>
+        <property name="grossWeightX" type="java.lang.Float">
+            <column name="GrossWeightX" precision="12" scale="0" />
+        </property>
+        <property name="grossUnitX" type="string">
+            <column name="GrossUnitX" length="4" />
+        </property>
+        <property name="altMatIdx" type="string">
+            <column name="AltMatIDX" length="12" />
+        </property>
+        <property name="processX" type="string">
+            <column name="ProcessX" length="2" />
+        </property>
+        <property name="speciIdx" type="string">
+            <column name="SpeciIDX" length="12" />
+        </property>
+        <property name="colorX" type="string">
+            <column name="ColorX" length="4" />
+        </property>
+        <property name="gradeX" type="java.lang.Character">
+            <column name="GradeX" length="1" />
+        </property>
+        <property name="coatingX" type="string">
+            <column name="CoatingX" length="10" />
+        </property>
+        <property name="costKindX" type="string">
+            <column name="CostKindX" length="20" />
+        </property>
+        <property name="volume" type="java.lang.Float">
+            <column name="Volume" precision="12" scale="0" />
+        </property>
+        <property name="checkYesOrNo" type="java.lang.Character">
+            <column name="CheckYesOrNo" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

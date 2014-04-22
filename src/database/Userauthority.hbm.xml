@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Userauthority" table="userauthority" catalog="erp">
+        <composite-id name="id" class="database.UserauthorityId">
+            <key-property name="programId" type="string">
+                <column name="ProgramID" length="5" />
+            </key-property>
+            <key-property name="userId" type="string">
+                <column name="UserID" length="10" />
+            </key-property>
+            <key-property name="authorityId" type="int">
+                <column name="AuthorityID" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/13 ?W?? 12:20:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Contact" table="contact" catalog="erp">
+        <id name="idcontact" type="int">
+            <column name="idcontact" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <set name="objectbasicdatas" table="objectbasicdata" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="contactID" />
+            </key>
+            <one-to-many class="database.Objectbasicdata" />
+        </set>
+    </class>
+</hibernate-mapping>

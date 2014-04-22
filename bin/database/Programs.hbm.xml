@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Programs" table="programs" catalog="erp">
+        <composite-id name="id" class="database.ProgramsId">
+            <key-property name="programId" type="string">
+                <column name="ProgramID" length="5" />
+            </key-property>
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="programName" type="string">
+            <column name="ProgramName" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,1052 @@
+Found a 48 line (328 tokens) duplication in the following files: 
+Starting at line 9 of D:\Dropbox\workspace\ERP\src\test\GetTwnMoneyTest.java
+Starting at line 33 of D:\Dropbox\workspace\ERP\src\common\Utility.java
+
+	private String getTwnMoney(int i) {
+		final String[] digit = { "箂", "滁", "禠", "把", "竩", "ヮ", "嘲", "琺", "",
+				"╤" };
+		final String[] twOE = { "", "珺", "ㄕ", "" };
+		final String[] twWan = { "", "窾", "货" };
+		String result = "";
+		String sMoney = String.valueOf(i);
+		int len = sMoney.length();
+
+		if (i == 0)
+			result = "箂";
+
+		else {
+			int temp = i;
+			int e = 0; // 0="" 1=珺 2=ㄕ 3=
+			int f = 0; // 0="" 1="窾" 2= "货" 3=""
+			for (int n = 1; n <= len; n++) { // パ计暗癬
+
+				if (e % 4 == 0)
+					result = digit[temp % 10] + twOE[e] + twWan[f] + result;
+				else
+					result = digit[temp % 10] + twOE[e] + result;
+				e++;
+				if (e == 4) {
+					e = 0;
+					f++;
+				}
+				temp /= 10;
+			}
+
+			result = result.replace("箂", "");
+			result = result.replace("箂货", "货");
+			result = result.replace("箂窾", "箂");
+			result = result.replaceAll("箂珺", "箂");
+			result = result.replaceAll("箂ㄕ", "箂");
+			result = result.replaceAll("箂", "箂");
+			result = result.replace("货", "");
+			result = result.replace("货窾", "货");
+			result = result.replace("窾", "");
+
+			while (result.contains("箂箂"))
+				result = result.replaceAll("箂箂", "箂");
+
+			while (result.charAt(result.length() - 1) == '箂')
+				result = result.substring(0, result.length() - 1);
+		}
+		return result;
+	}
+=====================================================================
+Found a 16 line (115 tokens) duplication in the following files: 
+Starting at line 46 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 60 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+
+		return ((this.getRequisitionId() == castOther.getRequisitionId()) || (this
+				.getRequisitionId() != null
+				&& castOther.getRequisitionId() != null && this
+				.getRequisitionId().equals(castOther.getRequisitionId())))
+				&& ((this.getCompanyId() == castOther.getCompanyId()) || (this
+						.getCompanyId() != null
+						&& castOther.getCompanyId() != null && this
+						.getCompanyId().equals(castOther.getCompanyId())));
+	}
+
+	public int hashCode() {
+		int result = 17;
+
+		result = 37
+				* result
+				+ (getRequisitionId() == null ? 0 : this.getRequisitionId()
+=====================================================================
+Found a 10 line (105 tokens) duplication in the following files: 
+Starting at line 258 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 55 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+
+		PurchaseorderId castOther = (PurchaseorderId) other;
+
+		return ((this.getCompanyId() == castOther.getCompanyId()) || (this
+				.getCompanyId() != null && castOther.getCompanyId() != null && this
+				.getCompanyId().equals(castOther.getCompanyId())))
+				&& ((this.getPurOrderId() == castOther.getPurOrderId()) || (this
+						.getPurOrderId() != null
+						&& castOther.getPurOrderId() != null && this
+						.getPurOrderId().equals(castOther.getPurOrderId())))
+				&& ((this.getSys2() == castOther.getSys2()) || (this.getSys2() != null
+=====================================================================
+Found a 35 line (103 tokens) duplication in the following files: 
+Starting at line 88 of D:\Dropbox\workspace\ERP\src\database\Requisition.java
+Starting at line 177 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+
+	}
+
+	public String getMemo() {
+		return this.memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+
+	public String getOperationId() {
+		return this.operationId;
+	}
+
+	public void setOperationId(String operationId) {
+		this.operationId = operationId;
+	}
+
+	public String getConfirmOpId() {
+		return this.confirmOpId;
+	}
+
+	public void setConfirmOpId(String confirmOpId) {
+		this.confirmOpId = confirmOpId;
+	}
+
+	public Date getConfirmOpDate() {
+		return this.confirmOpDate;
+	}
+
+	public void setConfirmOpDate(Date confirmOpDate) {
+		this.confirmOpDate = confirmOpDate;
+	}
+
+	public String getUpdateOpId() {
+=====================================================================
+Found a 24 line (85 tokens) duplication in the following files: 
+Starting at line 19 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 30 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+
+	}
+
+	public String getRequisitionId() {
+		return this.requisitionId;
+	}
+
+	public void setRequisitionId(String requisitionId) {
+		this.requisitionId = requisitionId;
+	}
+
+	public String getCompanyId() {
+		return this.companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public boolean equals(Object other) {
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof RequisitionId))
+=====================================================================
+Found a 5 line (74 tokens) duplication in the following files: 
+Starting at line 61 of D:\Dropbox\workspace\ERP\src\test\LoginViewImplTest.java
+Starting at line 79 of D:\Dropbox\workspace\ERP\src\test\LoginViewImplTest.java
+
+		JButton x;
+		for (int i = 0; i < impl.getUI().getContentPane().getComponentCount(); i++) {
+			if (impl.getUI().getContentPane().getComponent(i) instanceof JButton) {
+				x = (JButton) impl.getUI().getContentPane().getComponent(i);
+				if (x.getText() == "祅") {
+=====================================================================
+Found a 14 line (73 tokens) duplication in the following files: 
+Starting at line 355 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 66 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+
+								castOther.getMonthsOfPayment())));
+	}
+
+	public int hashCode() {
+		int result = 17;
+
+		result = 37 * result
+				+ (getCompanyId() == null ? 0 : this.getCompanyId().hashCode());
+		result = 37
+				* result
+				+ (getPurOrderId() == null ? 0 : this.getPurOrderId()
+						.hashCode());
+		result = 37 * result
+				+ (getSys2() == null ? 0 : this.getSys2().hashCode());
+=====================================================================
+Found a 12 line (72 tokens) duplication in the following files: 
+Starting at line 48 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 49 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 64 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 48 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+Starting at line 64 of D:\Dropbox\workspace\ERP\src\database\ObjectbasicdataId.java
+
+				.getUserId().equals(castOther.getUserId())))
+				&& ((this.getCompanyId() == castOther.getCompanyId()) || (this
+						.getCompanyId() != null
+						&& castOther.getCompanyId() != null && this
+						.getCompanyId().equals(castOther.getCompanyId())));
+	}
+
+	public int hashCode() {
+		int result = 17;
+
+		result = 37 * result
+				+ (getUserId() == null ? 0 : this.getUserId().hashCode());
+=====================================================================
+Found a 12 line (61 tokens) duplication in the following files: 
+Starting at line 82 of D:\Dropbox\workspace\ERP\src\view\LoginViewImpl.java
+Starting at line 62 of D:\Dropbox\workspace\ERP\src\controller\LoginDialog.java
+
+		txtCompany.setColumns(10);
+
+		JLabel labelAccount = new JLabel("眀腹");
+		labelAccount.setBounds(50, 60, 46, 15);
+		contentPane.add(labelAccount);
+
+		JLabel labelPassword = new JLabel("盞絏");
+		labelPassword.setBounds(50, 100, 46, 15);
+		contentPane.add(labelPassword);
+
+		txtAccount = new JTextField();
+		txtAccount.setName("txtUserId");
+=====================================================================
+Found a 16 line (60 tokens) duplication in the following files: 
+Starting at line 27 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 27 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 38 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 27 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+Starting at line 38 of D:\Dropbox\workspace\ERP\src\database\ObjectbasicdataId.java
+
+	}
+
+	public String getCompanyId() {
+		return this.companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public boolean equals(Object other) {
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof UsersId))
+=====================================================================
+Found a 6 line (56 tokens) duplication in the following files: 
+Starting at line 54 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 258 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 55 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+
+		UserauthorityId castOther = (UserauthorityId) other;
+
+		return ((this.getCompanyId() == castOther.getCompanyId()) || (this
+				.getCompanyId() != null && castOther.getCompanyId() != null && this
+				.getCompanyId().equals(castOther.getCompanyId())))
+				&& ((this.getProgramId() == castOther.getProgramId()) || (this
+=====================================================================
+Found a 17 line (54 tokens) duplication in the following files: 
+Starting at line 110 of D:\Dropbox\workspace\ERP\src\model\UserModelImpl.java
+Starting at line 132 of D:\Dropbox\workspace\ERP\src\model\UserModelImpl.java
+
+			session.save(this.getUser());
+			tx.commit();
+		} catch (RuntimeException e) {
+			try {
+				tx.rollback();
+			} catch (RuntimeException e2) {
+				e2.printStackTrace();
+			}
+			throw e;			
+		}
+		finally{
+			session.close();
+		}				
+	}
+
+	@Override
+	public void delete() {
+=====================================================================
+Found a 10 line (54 tokens) duplication in the following files: 
+Starting at line 59 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 76 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+
+		result = 37
+				* result
+				+ (getRequisitionId() == null ? 0 : this.getRequisitionId()
+						.hashCode());
+		result = 37 * result
+				+ (getCompanyId() == null ? 0 : this.getCompanyId().hashCode());
+		return result;
+	}
+
+}
+=====================================================================
+Found a 6 line (53 tokens) duplication in the following files: 
+Starting at line 54 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 258 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 55 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+Starting at line 64 of D:\Dropbox\workspace\ERP\src\database\Matcode2Id.java
+
+		UserauthorityId castOther = (UserauthorityId) other;
+
+		return ((this.getCompanyId() == castOther.getCompanyId()) || (this
+				.getCompanyId() != null && castOther.getCompanyId() != null && this
+				.getCompanyId().equals(castOther.getCompanyId())))
+				&& ((this.getProgramId() == castOther.getProgramId()) || (this
+=====================================================================
+Found a 5 line (53 tokens) duplication in the following files: 
+Starting at line 59 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 46 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+
+				&& ((this.getProgramId() == castOther.getProgramId()) || (this
+						.getProgramId() != null
+						&& castOther.getProgramId() != null && this
+						.getProgramId().equals(castOther.getProgramId())))
+				&& ((this.getUserId() == castOther.getUserId()) || (this
+=====================================================================
+Found a 19 line (53 tokens) duplication in the following files: 
+Starting at line 73 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 22 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+
+	}
+
+	public String getCompanyId() {
+		return this.companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public String getPurOrderId() {
+		return this.purOrderId;
+	}
+
+	public void setPurOrderId(String purOrderId) {
+		this.purOrderId = purOrderId;
+	}
+
+	public String getSys2() {
+=====================================================================
+Found a 19 line (52 tokens) duplication in the following files: 
+Starting at line 169 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 218 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetails.java
+
+	}
+
+	public Character getPurOrderStatus() {
+		return this.purOrderStatus;
+	}
+
+	public void setPurOrderStatus(Character purOrderStatus) {
+		this.purOrderStatus = purOrderStatus;
+	}
+
+	public String getMemo() {
+		return this.memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+
+	public String getOperationId() {
+=====================================================================
+Found a 3 line (48 tokens) duplication in the following files: 
+Starting at line 46 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 63 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+
+		return ((this.getUserId() == castOther.getUserId()) || (this
+				.getUserId() != null && castOther.getUserId() != null && this
+				.getUserId().equals(castOther.getUserId())))
+=====================================================================
+Found a 4 line (48 tokens) duplication in the following files: 
+Starting at line 49 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 56 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 50 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 65 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 260 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 57 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+Starting at line 49 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+Starting at line 65 of D:\Dropbox\workspace\ERP\src\database\ObjectbasicdataId.java
+Starting at line 66 of D:\Dropbox\workspace\ERP\src\database\Matcode2Id.java
+
+				&& ((this.getCompanyId() == castOther.getCompanyId()) || (this
+						.getCompanyId() != null
+						&& castOther.getCompanyId() != null && this
+						.getCompanyId().equals(castOther.getCompanyId())));
+=====================================================================
+Found a 10 line (48 tokens) duplication in the following files: 
+Starting at line 65 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 355 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 66 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+
+						.getUserId().equals(castOther.getUserId())));
+	}
+
+	public int hashCode() {
+		int result = 17;
+
+		result = 37 * result
+				+ (getCompanyId() == null ? 0 : this.getCompanyId().hashCode());
+		result = 37 * result
+				+ (getProgramId() == null ? 0 : this.getProgramId().hashCode());
+=====================================================================
+Found a 3 line (48 tokens) duplication in the following files: 
+Starting at line 57 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 64 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+
+		return ((this.getSequNo() == castOther.getSequNo()) || (this
+				.getSequNo() != null && castOther.getSequNo() != null && this
+				.getSequNo().equals(castOther.getSequNo())))
+=====================================================================
+Found a 10 line (47 tokens) duplication in the following files: 
+Starting at line 65 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 355 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 66 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+Starting at line 75 of D:\Dropbox\workspace\ERP\src\database\Matcode2Id.java
+
+						.getUserId().equals(castOther.getUserId())));
+	}
+
+	public int hashCode() {
+		int result = 17;
+
+		result = 37 * result
+				+ (getCompanyId() == null ? 0 : this.getCompanyId().hashCode());
+		result = 37 * result
+				+ (getProgramId() == null ? 0 : this.getProgramId().hashCode());
+=====================================================================
+Found a 8 line (45 tokens) duplication in the following files: 
+Starting at line 72 of D:\Dropbox\workspace\ERP\src\view\LoginViewImpl.java
+Starting at line 93 of D:\Dropbox\workspace\ERP\src\controller\LoginDialog.java
+
+		contentPane.setLayout(null);
+		
+		JLabel labelCompany = new JLabel("そ");
+		labelCompany.setBounds(50, 23, 46, 15);
+		contentPane.add(labelCompany);
+
+		txtCompany = new JTextField();
+		txtCompany.setBounds(106, 20, 96, 21);
+=====================================================================
+Found a 26 line (43 tokens) duplication in the following files: 
+Starting at line 6 of D:\Dropbox\workspace\ERP\src\controller\form\RequisitionPostFormControllerImpl.java
+Starting at line 6 of D:\Dropbox\workspace\ERP\src\controller\form\PurOrderPostFormControllerImpl.java
+Starting at line 6 of D:\Dropbox\workspace\ERP\src\controller\form\AcceptPostFormControllerImpl.java
+Starting at line 6 of D:\Dropbox\workspace\ERP\src\controller\form\AcceptConfirmFormControllerImpl.java
+
+public class RequisitionPostFormControllerImpl implements IFormController {
+
+	public static IFormController getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void createView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IFormView getView() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void newInstance() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+=====================================================================
+Found a 5 line (40 tokens) duplication in the following files: 
+Starting at line 118 of D:\Dropbox\workspace\ERP\src\controller\LoginDialog.java
+Starting at line 128 of D:\Dropbox\workspace\ERP\src\controller\LoginDialog.java
+
+		Iterator<Criteria> users = criteria.list().iterator();
+		while (users.hasNext()) {
+			Users user = (Users) users.next();
+			System.out.println(user.getEmployeeId() + " \t "
+					+ user.getUserName() + "/" + user.getEmployeeId());
+=====================================================================
+Found a 8 line (36 tokens) duplication in the following files: 
+Starting at line 99 of D:\Dropbox\workspace\ERP\src\view\LoginViewImpl.java
+Starting at line 77 of D:\Dropbox\workspace\ERP\src\controller\LoginDialog.java
+
+		passwordField.setName("txtPassword");
+		passwordField.setBounds(106, 97, 96, 21);
+
+		contentPane.add(passwordField);
+		passwordField.requestFocus();
+
+		JButton btSubmit = new JButton("祅");		
+		btSubmit.addActionListener(action);		
+=====================================================================
+Found a 7 line (36 tokens) duplication in the following files: 
+Starting at line 59 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 61 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 78 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 59 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+Starting at line 78 of D:\Dropbox\workspace\ERP\src\database\ObjectbasicdataId.java
+
+				+ (getUserId() == null ? 0 : this.getUserId().hashCode());
+		result = 37 * result
+				+ (getCompanyId() == null ? 0 : this.getCompanyId().hashCode());
+		return result;
+	}
+
+}
+=====================================================================
+Found a 13 line (36 tokens) duplication in the following files: 
+Starting at line 74 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetails.java
+Starting at line 80 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetails.java
+
+	public void setId(RequisitionDetailsId id) {
+		this.id = id;
+	}
+
+	public String getItem() {
+		return this.item;
+	}
+
+	public void setItem(String item) {
+		this.item = item;
+	}
+
+	public String getWasteDepartId() {
+=====================================================================
+Found a 5 line (35 tokens) duplication in the following files: 
+Starting at line 61 of D:\Dropbox\workspace\ERP\src\view\form\UsersFormViewImpl.java
+Starting at line 67 of D:\Dropbox\workspace\ERP\src\view\LoginViewImpl.java
+
+		frame.setBounds(100, 100, 766, 499);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		frame.setContentPane(contentPane);
+		contentPane.setLayout(null);
+=====================================================================
+Found a 8 line (35 tokens) duplication in the following files: 
+Starting at line 35 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 45 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 35 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 46 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 249 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 46 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+Starting at line 35 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+Starting at line 46 of D:\Dropbox\workspace\ERP\src\database\ObjectbasicdataId.java
+Starting at line 55 of D:\Dropbox\workspace\ERP\src\database\Matcode2Id.java
+
+	}
+
+	public boolean equals(Object other) {
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof UsersId))
+=====================================================================
+Found a 7 line (33 tokens) duplication in the following files: 
+Starting at line 93 of D:\Dropbox\workspace\ERP\src\view\LoginViewImpl.java
+Starting at line 72 of D:\Dropbox\workspace\ERP\src\controller\LoginDialog.java
+
+		txtAccount.setName("txtUserId");
+		txtAccount.setBounds(106, 57, 96, 21);
+		contentPane.add(txtAccount);
+		txtAccount.setColumns(10);
+
+		passwordField = new JPasswordField();
+		passwordField.setName("txtPassword");
+=====================================================================
+Found a 15 line (33 tokens) duplication in the following files: 
+Starting at line 78 of D:\Dropbox\workspace\ERP\src\model\UserModelImpl.java
+Starting at line 26 of D:\Dropbox\workspace\ERP\src\model\CompanyModel.java
+
+	}
+
+	@Override
+	public void setTransactionLevel(int i) {	
+
+	}
+
+	@Override
+	public int getTransactionLevel() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object locate(Object record) {
+=====================================================================
+Found a 12 line (33 tokens) duplication in the following files: 
+Starting at line 28 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 18 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+
+		this.companyId = companyId;
+	}
+
+	public String getProgramId() {
+		return this.programId;
+	}
+
+	public void setProgramId(String programId) {
+		this.programId = programId;
+	}
+
+	public String getUserId() {
+=====================================================================
+Found a 4 line (32 tokens) duplication in the following files: 
+Starting at line 62 of D:\Dropbox\workspace\ERP\src\view\form\UsersFormViewImpl.java
+Starting at line 132 of D:\Dropbox\workspace\ERP\src\view\MainViewImpl.java
+Starting at line 69 of D:\Dropbox\workspace\ERP\src\view\LoginViewImpl.java
+
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		frame.setContentPane(contentPane);
+		contentPane.setLayout(null);
+=====================================================================
+Found a 4 line (32 tokens) duplication in the following files: 
+Starting at line 67 of D:\Dropbox\workspace\ERP\src\view\LoginViewImpl.java
+Starting at line 57 of D:\Dropbox\workspace\ERP\src\controller\LoginDialog.java
+
+		frame.setBounds(100, 100, 300, 200);
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+=====================================================================
+Found a 12 line (32 tokens) duplication in the following files: 
+Starting at line 26 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 20 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+
+		this.userId = userId;
+	}
+
+	public String getCompanyId() {
+		return this.companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public boolean equals(Object other) {
+=====================================================================
+Found a 4 line (32 tokens) duplication in the following files: 
+Starting at line 73 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 58 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+
+		result = 37 * result
+				+ (getProgramId() == null ? 0 : this.getProgramId().hashCode());
+		result = 37 * result
+				+ (getUserId() == null ? 0 : this.getUserId().hashCode());
+=====================================================================
+Found a 7 line (32 tokens) duplication in the following files: 
+Starting at line 22 of D:\Dropbox\workspace\ERP\src\database\Userauthority.java
+Starting at line 32 of D:\Dropbox\workspace\ERP\src\database\Userauthority.java
+
+			char del, char report) {
+		this.id = id;
+		this.run = run;
+		this.append = append;
+		this.edit = edit;
+		this.del = del;
+		this.report = report;
+=====================================================================
+Found a 7 line (31 tokens) duplication in the following files: 
+Starting at line 104 of D:\Dropbox\workspace\ERP\src\model\UserModelImpl.java
+Starting at line 126 of D:\Dropbox\workspace\ERP\src\model\UserModelImpl.java
+
+	public void insert() {
+		session =null;
+		tx= null;
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			tx=session.beginTransaction();
+			session.save(this.getUser());
+=====================================================================
+Found a 6 line (31 tokens) duplication in the following files: 
+Starting at line 57 of D:\Dropbox\workspace\ERP\src\controller\LoginDialog.java
+Starting at line 48 of D:\Dropbox\workspace\ERP\src\common\SimpleForm.java
+
+		setBounds(100, 100, 300, 200);
+
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+=====================================================================
+Found a 4 line (30 tokens) duplication in the following files: 
+Starting at line 23 of D:\Dropbox\workspace\ERP\src\test\LoginControllerImplTest.java
+Starting at line 58 of D:\Dropbox\workspace\ERP\src\test\LoginControllerImplTest.java
+
+	public void testMainInLoginControllerImpl() throws Exception {
+		final IMainController main = new MainControllerImpl();
+		final ILoginController controller= new LoginControllerImpl(main);		
+		LoginControllerImpl impl = new LoginControllerImpl(main);
+=====================================================================
+Found a 16 line (30 tokens) duplication in the following files: 
+Starting at line 16 of D:\Dropbox\workspace\ERP\src\controller\form\manager\ProgramAuthFormControllerImpl.java
+Starting at line 16 of D:\Dropbox\workspace\ERP\src\controller\form\UserSearchFormControllerImpl.java
+
+					instance = new ProgramAuthFormControllerImpl();
+				}
+			}
+		}
+		return instance;
+
+	}
+
+	@Override
+	public IFormView getView() {
+		return view;
+	}
+
+	@Override
+	public void createView() {
+		view = new ProgramAuthFormViewImpl();
+=====================================================================
+Found a 3 line (29 tokens) duplication in the following files: 
+Starting at line 153 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 162 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 172 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 182 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 191 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 201 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 211 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 221 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 231 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 241 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 251 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 261 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+Starting at line 271 of D:\Dropbox\workspace\ERP\src\view\form\UsersJPanel.java
+
+		BeanProperty<javax.swing.JTextField, java.lang.String> textProperty = BeanProperty
+				.create("text");
+		AutoBinding<Users, java.lang.String, javax.swing.JTextField, java.lang.String> autoBinding = Bindings
+=====================================================================
+Found a 4 line (29 tokens) duplication in the following files: 
+Starting at line 37 of D:\Dropbox\workspace\ERP\src\test\LoginViewImplTest.java
+Starting at line 75 of D:\Dropbox\workspace\ERP\src\test\LoginViewImplTest.java
+
+	public void testIfButtonSubmitClick() {
+		final LoginViewImpl impl = new LoginViewImpl(new UserModelImpl(),
+				new LoginControllerImpl(new MainControllerImpl()));
+		impl.createView();
+=====================================================================
+Found a 11 line (28 tokens) duplication in the following files: 
+Starting at line 21 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 73 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 22 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+Starting at line 33 of D:\Dropbox\workspace\ERP\src\database\Company.java
+
+	}
+
+	public String getCompanyId() {
+		return this.companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public String getProgramId() {
+=====================================================================
+Found a 11 line (28 tokens) duplication in the following files: 
+Starting at line 19 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 30 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 90 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetails.java
+
+	}
+
+	public String getRequisitionId() {
+		return this.requisitionId;
+	}
+
+	public void setRequisitionId(String requisitionId) {
+		this.requisitionId = requisitionId;
+	}
+
+	public String getCompanyId() {
+=====================================================================
+Found a 11 line (28 tokens) duplication in the following files: 
+Starting at line 172 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetails.java
+Starting at line 113 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+
+	}
+
+	public String getReqObjectId() {
+		return this.reqObjectId;
+	}
+
+	public void setReqObjectId(String reqObjectId) {
+		this.reqObjectId = reqObjectId;
+	}
+
+	public String getSuggestionVendor() {
+=====================================================================
+Found a 11 line (28 tokens) duplication in the following files: 
+Starting at line 196 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetails.java
+Starting at line 88 of D:\Dropbox\workspace\ERP\src\database\Requisition.java
+Starting at line 177 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+
+	}
+
+	public String getMemo() {
+		return this.memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+
+	public String getBomId() {
+=====================================================================
+Found a 11 line (28 tokens) duplication in the following files: 
+Starting at line 56 of D:\Dropbox\workspace\ERP\src\database\Requisition.java
+Starting at line 89 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+
+	}
+
+	public String getSys2() {
+		return this.sys2;
+	}
+
+	public void setSys2(String sys2) {
+		this.sys2 = sys2;
+	}
+
+	public Date getRequDate() {
+=====================================================================
+Found a 5 line (28 tokens) duplication in the following files: 
+Starting at line 25 of D:\Dropbox\workspace\ERP\src\controller\form\manager\UserFormControllerImpl.java
+Starting at line 12 of D:\Dropbox\workspace\ERP\src\controller\form\UserSearchFormControllerImpl.java
+
+	public static UserFormControllerImpl getInstance() {
+		if (instance == null){
+			synchronized(UserFormControllerImpl.class){
+				if(instance == null){
+					instance = new UserFormControllerImpl();
+=====================================================================
+Found a 5 line (27 tokens) duplication in the following files: 
+Starting at line 72 of D:\Dropbox\workspace\ERP\src\view\form\UsersFormViewImpl.java
+Starting at line 62 of D:\Dropbox\workspace\ERP\src\common\SimpleForm.java
+
+		btnNewButton = new JButton("穝糤");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+=====================================================================
+Found a 10 line (27 tokens) duplication in the following files: 
+Starting at line 72 of D:\Dropbox\workspace\ERP\src\model\UserModelImpl.java
+Starting at line 8 of D:\Dropbox\workspace\ERP\src\model\CompanyModel.java
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	@Override
+	public void setTransactionLevel(int i) {	
+=====================================================================
+Found a 11 line (27 tokens) duplication in the following files: 
+Starting at line 19 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 37 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+
+	}
+
+	public String getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getCompanyId() {
+=====================================================================
+Found a 11 line (27 tokens) duplication in the following files: 
+Starting at line 27 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 73 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 22 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+Starting at line 23 of D:\Dropbox\workspace\ERP\src\database\Matcode2Id.java
+Starting at line 33 of D:\Dropbox\workspace\ERP\src\database\Company.java
+
+	}
+
+	public String getCompanyId() {
+		return this.companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public boolean equals(Object other) {
+=====================================================================
+Found a 11 line (27 tokens) duplication in the following files: 
+Starting at line 21 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 27 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 38 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 27 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+Starting at line 38 of D:\Dropbox\workspace\ERP\src\database\ObjectbasicdataId.java
+
+	}
+
+	public String getCompanyId() {
+		return this.companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public String getProgramId() {
+=====================================================================
+Found a 11 line (27 tokens) duplication in the following files: 
+Starting at line 22 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 38 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+
+	}
+
+	public String getSequNo() {
+		return this.sequNo;
+	}
+
+	public void setSequNo(String sequNo) {
+		this.sequNo = sequNo;
+	}
+
+	public String getRequisitionId() {
+=====================================================================
+Found a 11 line (27 tokens) duplication in the following files: 
+Starting at line 140 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetails.java
+Starting at line 178 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetails.java
+
+	}
+
+	public Float getOrderQuantity() {
+		return this.orderQuantity;
+	}
+
+	public void setOrderQuantity(Float orderQuantity) {
+		this.orderQuantity = orderQuantity;
+	}
+
+	public Date getEstimatedTimeOfArrival() {
+=====================================================================
+Found a 11 line (27 tokens) duplication in the following files: 
+Starting at line 196 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetails.java
+Starting at line 88 of D:\Dropbox\workspace\ERP\src\database\Requisition.java
+Starting at line 226 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetails.java
+
+	}
+
+	public String getMemo() {
+		return this.memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+
+	public String getBomId() {
+=====================================================================
+Found a 11 line (27 tokens) duplication in the following files: 
+Starting at line 80 of D:\Dropbox\workspace\ERP\src\database\Requisition.java
+Starting at line 129 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+
+	}
+
+	public String getBudgetNo() {
+		return this.budgetNo;
+	}
+
+	public void setBudgetNo(String budgetNo) {
+		this.budgetNo = budgetNo;
+	}
+
+	public String getMemo() {
+=====================================================================
+Found a 9 line (26 tokens) duplication in the following files: 
+Starting at line 220 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetails.java
+Starting at line 234 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetails.java
+
+	}
+
+	public Character getCheckYesNo() {
+		return this.checkYesNo;
+	}
+
+	public void setCheckYesNo(Character checkYesNo) {
+		this.checkYesNo = checkYesNo;
+	}
+=====================================================================
+Found a 9 line (26 tokens) duplication in the following files: 
+Starting at line 136 of D:\Dropbox\workspace\ERP\src\database\Requisition.java
+Starting at line 225 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+
+	}
+
+	public Character getMark() {
+		return this.mark;
+	}
+
+	public void setMark(Character mark) {
+		this.mark = mark;
+	}
+=====================================================================
+Found a 1 line (25 tokens) duplication in the following files: 
+Starting at line 43 of D:\Dropbox\workspace\ERP\src\test\LoginViewImplTest.java
+Starting at line 62 of D:\Dropbox\workspace\ERP\src\test\LoginViewImplTest.java
+Starting at line 80 of D:\Dropbox\workspace\ERP\src\test\LoginViewImplTest.java
+
+		for (int i = 0; i < impl.getUI().getContentPane().getComponentCount(); i++) {
+=====================================================================
+Found a 2 line (25 tokens) duplication in the following files: 
+Starting at line 58 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 75 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+
+		result = 37 * result
+				+ (getUserId() == null ? 0 : this.getUserId().hashCode());
+=====================================================================
+Found a 2 line (25 tokens) duplication in the following files: 
+Starting at line 60 of D:\Dropbox\workspace\ERP\src\database\UsersId.java
+Starting at line 71 of D:\Dropbox\workspace\ERP\src\database\UserauthorityId.java
+Starting at line 63 of D:\Dropbox\workspace\ERP\src\database\RequisitionId.java
+Starting at line 80 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 361 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderId.java
+Starting at line 72 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+Starting at line 60 of D:\Dropbox\workspace\ERP\src\database\ProgramsId.java
+Starting at line 80 of D:\Dropbox\workspace\ERP\src\database\ObjectbasicdataId.java
+Starting at line 81 of D:\Dropbox\workspace\ERP\src\database\Matcode2Id.java
+
+		result = 37 * result
+				+ (getCompanyId() == null ? 0 : this.getCompanyId().hashCode());
+=====================================================================
+Found a 2 line (25 tokens) duplication in the following files: 
+Starting at line 74 of D:\Dropbox\workspace\ERP\src\database\RequisitionDetailsId.java
+Starting at line 78 of D:\Dropbox\workspace\ERP\src\database\PurchaseorderDetailsId.java
+
+		result = 37 * result
+				+ (getSequNo() == null ? 0 : this.getSequNo().hashCode());

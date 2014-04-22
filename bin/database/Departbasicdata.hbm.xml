@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Departbasicdata" table="departbasicdata" catalog="erp">
+        <composite-id name="id" class="database.DepartbasicdataId">
+            <key-property name="departId" type="string">
+                <column name="DepartID" length="6" />
+            </key-property>
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+            <key-property name="dataType" type="char">
+                <column name="DataType" length="1" />
+            </key-property>
+        </composite-id>
+        <property name="departAlias" type="string">
+            <column name="DepartAlias" length="14" not-null="true" />
+        </property>
+        <property name="departFullName" type="string">
+            <column name="DepartFullName" length="30" />
+        </property>
+        <property name="departEngAlias" type="string">
+            <column name="DepartEngAlias" length="14" />
+        </property>
+        <property name="departEngFullName" type="string">
+            <column name="DepartEngFullName" length="30" />
+        </property>
+        <property name="expenseClassId" type="java.lang.Character">
+            <column name="ExpenseClassID" length="1" />
+        </property>
+        <property name="parentDepartId" type="string">
+            <column name="ParentDepartID" length="6" />
+        </property>
+        <property name="effectiveDate" type="java.lang.Float">
+            <column name="EffectiveDate" precision="12" scale="0" />
+        </property>
+        <property name="lostEffectiveDate" type="java.lang.Float">
+            <column name="LostEffectiveDate" precision="12" scale="0" />
+        </property>
+        <property name="projectId" type="string">
+            <column name="ProjectID" length="10" />
+        </property>
+        <property name="modifier" type="string">
+            <column name="Modifier" length="10" />
+        </property>
+        <property name="dateOfModifier" type="java.lang.Float">
+            <column name="DateOfModifier" precision="12" scale="0" />
+        </property>
+        <property name="departIdclassification" type="string">
+            <column name="DepartIDClassification" length="6" />
+        </property>
+    </class>
+</hibernate-mapping>

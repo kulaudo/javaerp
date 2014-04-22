@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Users" table="users" catalog="erp">
+        <composite-id name="id" class="database.UsersId">
+            <key-property name="userId" type="string">
+                <column name="UserID" length="10" />
+            </key-property>
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="userName" type="string">
+            <column name="UserName" length="10" not-null="true" />
+        </property>
+        <property name="passwordCode" type="string">
+            <column name="PasswordCode" length="10" not-null="true" />
+        </property>
+        <property name="employeeId" type="string">
+            <column name="EmployeeID" length="6" />
+        </property>
+        <property name="vouchDrawNoId" type="string">
+            <column name="VouchDrawNoID" length="2" />
+        </property>
+        <property name="paymentNoId" type="string">
+            <column name="PaymentNoID" length="2" />
+        </property>
+        <property name="xoperationIdc" type="string">
+            <column name="XOperationIDC" length="2" />
+        </property>
+        <property name="xconfirmIdc" type="string">
+            <column name="XConfirmIDC" length="2" />
+        </property>
+        <property name="xcancelIdc" type="string">
+            <column name="XCancelIDC" length="2" />
+        </property>
+        <property name="xpostingIdc" type="string">
+            <column name="XPostingIDC" length="2" />
+        </property>
+        <property name="yoperationIdc" type="string">
+            <column name="YOperationIDC" length="2" />
+        </property>
+        <property name="yconfirmIdc" type="string">
+            <column name="YConfirmIDC" length="2" />
+        </property>
+        <property name="ycancelIdc" type="string">
+            <column name="YCancelIDC" length="2" />
+        </property>
+        <property name="ypostingIdc" type="string">
+            <column name="YPostingIDC" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Users" table="users" catalog="erp">
+        <id name="userId" type="string">
+            <column name="UserID" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="userName" type="string">
+            <column name="UserName" length="10" />
+        </property>
+        <property name="passwordCode" type="string">
+            <column name="PasswordCode" length="10" not-null="true" />
+        </property>
+        <property name="employeeId" type="string">
+            <column name="EmployeeID" length="6" />
+        </property>
+        <property name="vouchDrawNoId" type="string">
+            <column name="VouchDrawNoID" length="2" />
+        </property>
+        <property name="contactId" type="java.lang.Integer">
+            <column name="ContactID" />
+        </property>
+    </class>
+</hibernate-mapping>

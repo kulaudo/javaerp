@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Phone" table="phone" catalog="erp">
+        <id name="idphone" type="int">
+            <column name="idphone" />
+            <generator class="assigned" />
+        </id>
+        <property name="contactId" type="java.lang.Integer">
+            <column name="contactID" />
+        </property>
+        <property name="number" type="string">
+            <column name="number" length="15" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

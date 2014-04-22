@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Address" table="address" catalog="erp">
+        <id name="idaddress" type="int">
+            <column name="idaddress" />
+            <generator class="assigned" />
+        </id>
+        <property name="street" type="string">
+            <column name="street" length="45" />
+        </property>
+        <property name="block" type="string">
+            <column name="block" length="45" />
+        </property>
+        <property name="area" type="string">
+            <column name="area" length="45" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="45" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="45" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="45" />
+        </property>
+        <property name="contactId" type="java.lang.Integer">
+            <column name="contactID" />
+        </property>
+    </class>
+</hibernate-mapping>

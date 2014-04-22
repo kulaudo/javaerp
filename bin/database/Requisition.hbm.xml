@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/6/6 ?W?? 06:42:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Requisition" table="requisition" catalog="erp">
+        <composite-id name="id" class="database.RequisitionId">
+            <key-property name="requisitionId" type="string">
+                <column name="RequisitionID" length="13" />
+            </key-property>
+            <key-property name="companyId" type="string">
+                <column name="CompanyID" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="sys2" type="string">
+            <column name="Sys2" length="3" />
+        </property>
+        <property name="requDate" type="timestamp">
+            <column name="RequDate" length="19" />
+        </property>
+        <property name="requDepartId" type="string">
+            <column name="RequDepartID" length="6" />
+        </property>
+        <property name="budgetNo" type="string">
+            <column name="BudgetNo" length="10" />
+        </property>
+        <property name="memo" type="string">
+            <column name="Memo" length="20" />
+        </property>
+        <property name="operationId" type="string">
+            <column name="OperationID" length="10" />
+        </property>
+        <property name="confirmOpId" type="string">
+            <column name="ConfirmOpID" length="10" />
+        </property>
+        <property name="confirmOpDate" type="timestamp">
+            <column name="ConfirmOpDate" length="19" />
+        </property>
+        <property name="updateOpId" type="string">
+            <column name="UpdateOpID" length="10" />
+        </property>
+        <property name="updateOpDate" type="timestamp">
+            <column name="UpdateOpDate" length="19" />
+        </property>
+        <property name="mark" type="java.lang.Character">
+            <column name="Mark" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

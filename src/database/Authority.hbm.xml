@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Authority" table="authority" catalog="erp">
+        <id name="idauthority" type="java.lang.Integer">
+            <column name="idauthority" />
+            <generator class="identity" />
+        </id>
+        <property name="print" type="boolean">
+            <column name="print" not-null="true" />
+        </property>
+        <property name="execute" type="boolean">
+            <column name="execute" not-null="true" />
+        </property>
+        <property name="insert" type="boolean">
+            <column name="insert" not-null="true" />
+        </property>
+        <property name="edit" type="boolean">
+            <column name="edit" not-null="true" />
+        </property>
+        <property name="delete" type="boolean">
+            <column name="delete" not-null="true" />
+        </property>
+        <property name="confirm" type="boolean">
+            <column name="confirm" not-null="true" />
+        </property>
+        <property name="post" type="boolean">
+            <column name="post" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

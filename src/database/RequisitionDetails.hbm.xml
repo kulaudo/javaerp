@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.RequisitionDetails" table="requisition_details" catalog="erp">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="requisition" class="database.Requisition" fetch="select">
+            <column name="requisitionId" not-null="true" />
+        </many-to-one>
+        <property name="wasteDepartId" type="string">
+            <column name="WasteDepartID" length="6" />
+        </property>
+        <property name="requKind" type="java.lang.Character">
+            <column name="RequKind" length="1" />
+        </property>
+        <property name="requCode" type="string">
+            <column name="RequCode" length="12" />
+        </property>
+        <property name="requSpeci" type="string">
+            <column name="RequSpeci" length="12" />
+        </property>
+        <property name="requPack" type="string">
+            <column name="RequPack" length="12" />
+        </property>
+        <property name="requUnit" type="string">
+            <column name="RequUnit" length="4" />
+        </property>
+        <property name="requQuantity" type="java.lang.Float">
+            <column name="RequQuantity" precision="12" scale="0" />
+        </property>
+        <property name="orderQuantity" type="java.lang.Float">
+            <column name="OrderQuantity" precision="12" scale="0" />
+        </property>
+        <property name="estimatedTimeOfArrival" type="timestamp">
+            <column name="EstimatedTimeOfArrival" length="19" />
+        </property>
+        <property name="deadlineDeliveryDate" type="timestamp">
+            <column name="DeadlineDeliveryDate" length="19" />
+        </property>
+        <property name="requStatus" type="java.lang.Character">
+            <column name="RequStatus" length="1" />
+        </property>
+        <property name="reqObjectId" type="string">
+            <column name="ReqObjectID" length="2" />
+        </property>
+        <property name="memo" type="string">
+            <column name="Memo" length="20" />
+        </property>
+        <set name="purchaseorderDetailses" table="purchaseorder_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RequisitionDetailsId" />
+            </key>
+            <one-to-many class="database.PurchaseorderDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

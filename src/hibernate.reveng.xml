@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table-filter match-name="users" match-catalog="erp"/>	
+	<table-filter match-name="objectbasicdata" match-catalog="erp"></table-filter>
+	<table-filter match-name="programs" match-catalog="erp"></table-filter>
+	<table-filter match-name="purchaseorder" match-catalog="erp"></table-filter>
+	<table-filter match-name="purchaseorder_details" match-catalog="erp"></table-filter>
+	<table-filter match-name="requisition" match-catalog="erp"></table-filter>
+	<table-filter match-name="requisition_details"	match-catalog="erp"></table-filter>
+	<table-filter match-name="userauthority" match-catalog="erp"></table-filter>
+	<table-filter match-name="matcode" match-catalog="erp"></table-filter>
+	<table-filter match-name="userauthority" match-catalog="erp"></table-filter>
+	<table-filter match-name="authority" match-catalog="erp"></table-filter>
+	
+	<table-filter match-name="phone" match-catalog="erp"></table-filter>
+	<table-filter match-name="address" match-catalog="erp"></table-filter>
+	<table-filter match-name="departbasicdata" match-catalog="erp"></table-filter>
+	
+</hibernate-reverse-engineering>

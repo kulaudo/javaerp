@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--DOCTYPE hibernate-configuration SYSTEM
+    "classpath://org/hibernate/hibernate-configuration-3.0.dtd"-->
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="mysql">
+        <property name="hibernate.connection.charSet">utf8</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">00000</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/erp</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <mapping resource="database/Requisition.hbm.xml" />
+        <mapping resource="database/Userauthority.hbm.xml" />
+        <mapping resource="database/Programs.hbm.xml" />
+        <mapping resource="database/Departbasicdata.hbm.xml" />
+        <mapping resource="database/Objectbasicdata.hbm.xml" />
+        <mapping resource="database/Company.hbm.xml" />
+        <mapping resource="database/RequisitionDetails.hbm.xml" />
+        <mapping resource="database/PurchaseorderDetails.hbm.xml" />
+        <mapping resource="database/Users.hbm.xml" />
+        <mapping resource="database/Purchaseorder.hbm.xml" />
+        <mapping resource="database/Matcode2.hbm.xml" />
+        
+    </session-factory>
+</hibernate-configuration>

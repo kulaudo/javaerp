@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.PurchaseorderDetails" table="purchaseorder_details" catalog="erp">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="requisitionDetails" class="database.RequisitionDetails" fetch="select">
+            <column name="RequisitionDetailsId" />
+        </many-to-one>
+        <many-to-one name="purchaseorder" class="database.Purchaseorder" fetch="select">
+            <column name="PurOrderID" not-null="true" />
+        </many-to-one>
+        <property name="purOrderKind" type="java.lang.Character">
+            <column name="PurOrderKind" length="1" />
+        </property>
+        <property name="purOrderCode" type="string">
+            <column name="PurOrderCode" length="12" />
+        </property>
+        <property name="purOrderSpeci" type="string">
+            <column name="PurOrderSpeci" length="12" />
+        </property>
+        <property name="purOrderPack" type="string">
+            <column name="PurOrderPack" length="12" />
+        </property>
+        <property name="purOrderUnit" type="string">
+            <column name="PurOrderUnit" length="4" />
+        </property>
+        <property name="purOrderQuantity" type="java.lang.Float">
+            <column name="PurOrderQuantity" precision="12" scale="0" />
+        </property>
+        <property name="purOrderUnitPrice" type="java.lang.Float">
+            <column name="PurOrderUnitPrice" precision="12" scale="0" />
+        </property>
+        <property name="purOrderTaxRate" type="java.lang.Character">
+            <column name="PurOrderTaxRate" length="1" />
+        </property>
+        <property name="receivedQuantity" type="java.lang.Float">
+            <column name="ReceivedQuantity" precision="12" scale="0" />
+        </property>
+        <property name="acceptQuantity" type="java.lang.Float">
+            <column name="AcceptQuantity" precision="12" scale="0" />
+        </property>
+        <property name="estTimeOfArrival" type="timestamp">
+            <column name="EstTimeOfArrival" length="19" />
+        </property>
+        <property name="actualTimeOfArrival" type="timestamp">
+            <column name="ActualTimeOfArrival" length="19" />
+        </property>
+        <property name="actualTimeOfAccept" type="timestamp">
+            <column name="ActualTimeOfAccept" length="19" />
+        </property>
+        <property name="memo" type="string">
+            <column name="Memo" length="15" />
+        </property>
+        <property name="acceptDiscountAmt" type="java.lang.Float">
+            <column name="AcceptDiscountAmt" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/8/24 ?W?? 12:19:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="database.Matcode" table="matcode" catalog="erp">
+        <id name="matId" type="string">
+            <column name="MatID" length="12" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="50" />
+        </property>
+        <property name="spec" type="string">
+            <column name="Spec" length="50" />
+        </property>
+        <property name="unitId" type="string">
+            <column name="UnitID" length="4" />
+        </property>
+        <property name="engName" type="string">
+            <column name="EngName" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>
